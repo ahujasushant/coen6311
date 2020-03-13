@@ -1,0 +1,2 @@
+FLASK_APP=coen_6311.py
+FLASK_ENV=development
