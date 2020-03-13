@@ -1,4 +1,11 @@
-{% extends "base.html" %}
+{% block css %}
+  {% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
+
+{% extends "/base.html" %}
 
 {% block content %}
     <h1>Register</h1>
@@ -34,4 +41,5 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    <p>Already, registered? <a href="{{ url_for('login') }}">Click here to Login!</a></p>
 {% endblock %}

@@ -1,3 +1,9 @@
+{% block css %}
+  {% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -18,8 +24,8 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+
         <p>{{ form.submit() }}</p>
     </form>
-    <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+    <p>New Organization? <a href="{{ url_for('register') }}">Click to Register!</a></p>
 {% endblock %}
