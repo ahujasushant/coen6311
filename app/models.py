@@ -52,6 +52,13 @@ class Organization(db.Model):
         return check_password_hash(self.password_hash, password)
 
 
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(64))
+    location = db.Column(db.String(120))
+
+    def __repr__(self):
+        return '<Post {}>'.format(self.description)
 
 
 
