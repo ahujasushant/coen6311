@@ -21,6 +21,7 @@ dominate==2.4.0
 entrypoints==0.3
 fabric==2.5.0
 Flask==1.1.1
+<<<<<<< Updated upstream
 flask-apispec==0.8.5
 Flask-Bcrypt==0.7.1
 Flask-Caching==1.8.0
@@ -30,6 +31,9 @@ Flask-Migrate==2.5.2
 flask-nav==0.6
 Flask-SQLAlchemy==2.2
 Flask-WTF==0.14.2
+=======
+Flask-WTF==0.14.3
+>>>>>>> Stashed changes
 gunicorn==20.0.4
 idna==2.8
 imgcat==0.3.0
