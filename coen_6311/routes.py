@@ -1,30 +1,30 @@
 # Imports
 
 import flask
-from app import __init__
-from app.forms import LoginForm, RegistrationForm, VolunteerLoginForm, VolunteerRegistrationForm
+from coen_6311 import app
+from coen_6311.forms import LoginForm, RegistrationForm, VolunteerLoginForm, VolunteerRegistrationForm
 from flask_login import current_user, login_user
-from app.models import Volunteer, Organization, Post
+from coen_6311.models import Volunteer, Organization, Post
 from flask_login import logout_user
 from flask import request
 from werkzeug.urls import url_parse
-from app import db
+from coen_6311 import db
 
 
 
 # Controllers.
 
-@__init__.route('/')
+@app.route('/')
 def home():
     return flask.render_template('dashboard/home.html')
 
 
-@__init__.route('/about')
+@app.route('/about')
 def about():
     return flask.render_template('dashboard/about_us.html')
 
 
-@__init__.route('/register_organization', methods=['GET', 'POST'])
+@app.route('/register_organization', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
         return flask.redirect(flask.url_for('posts'))
@@ -39,7 +39,7 @@ def register():
     return flask.render_template('/registration/register.html', title='Register', form=form)
 
 
-@__init__.route('/login_organization', methods=['GET', 'POST'])
+@app.route('/login_organization', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return flask.redirect(flask.url_for('posts'))
@@ -57,7 +57,7 @@ def login():
     return flask.render_template('/login/login.html', title='Sign In', form=form)
 
 
-@__init__.route('/register_volunteer', methods=['GET', 'POST'])
+@app.route('/register_volunteer', methods=['GET', 'POST'])
 def register_vol():
     if current_user.is_authenticated:
         return flask.redirect(flask.url_for('about'))
@@ -72,7 +72,7 @@ def register_vol():
     return flask.render_template('/registration/register_volunteer.html', title='Register', form=form)
 
 
-@__init__.route('/login_volunteer', methods=['GET', 'POST'])
+@app.route('/login_volunteer', methods=['GET', 'POST'])
 def login_vol():
     if current_user.is_authenticated:
         return flask.redirect(flask.url_for('posts'))
@@ -90,19 +90,19 @@ def login_vol():
     return flask.render_template('/login/login_volunteer.html', title='Sign In', form=form)
 
 
-@__init__.route('/logout')
+@app.route('/logout')
 def logout():
     logout_user()
     return flask.redirect(flask.url_for('home'))
 
 
-@__init__.route('/posts', methods=['GET', 'POST'])
+@app.route('/posts', methods=['GET', 'POST'])
 def posts():
     posts = Post.query.all()
     return flask.render_template('post/index.html', posts=posts)
 
 
-@__init__.route('/volunteers', methods=['GET', 'POST'])
+@app.route('/volunteers', methods=['GET', 'POST'])
 def volunteers():
     volunteers = Volunteer.query.all()
     return flask.render_template('volunteer/index.html', volunteers=volunteers)
@@ -113,4 +113,4 @@ def volunteers():
 
 
 if __name__ == '__main__':
-    __init__.run()
+    app.run()

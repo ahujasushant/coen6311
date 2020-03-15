@@ -1,1 +1,1 @@
-web: gunicorn app:app --log-file=-
+web: gunicorn coen_6311:app --log-file=-
