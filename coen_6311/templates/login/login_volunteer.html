@@ -4,29 +4,100 @@
 
 {% include 'layouts/navbar.html' %}
 
-
-{% extends "base.html" %}
-
 {% block content %}
-    <h1>Sign In</h1>
+    <center><h1>Sign In as a Volunteer </h1></center><br>
+<html>
+<head>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body
+    {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: black;
+      font-size: 15px
+    }
+
+    *
+    {
+      box-sizing: border-box;
+    }
+
+/* Add padding to containers */
+/* Full-width input fields */
+    input[type=text], input[type=password]
+    {
+      width: 40%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border-radius:7px;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+/* Set a style for the submit button */
+/* Add a blue text color to links */
+    a
+    {
+      color: dodgerblue;
+    }
+
+/* Set a grey background color and center the text of the "sign in" section */
+    .signin
+    {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    .button-register, input[type="submit"]
+    {
+      background-color: #0B4742; /* Green */
+      border: none;
+      width:25%;
+      color: white;
+      <!--padding: 16px 32px;-->
+      text-align: center;
+      text-decoration: none;
+      border-radius:7px;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.9s;
+      cursor: pointer;
+    }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    img
+    {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    </style>
+</body>
+</head>
+
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        <p>
+        <center><p>
             {{ form.email.label }}<br>
-            {{ form.email(size=32) }}<br>
+            {{ form.email(size=42) }}<br>
             {% for error in form.email.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
+            {{ form.password(size=42) }}<br>
             {% for error in form.password.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
 
         <p>{{ form.submit() }}</p>
+            <p>New Volunteer? <a href="{{ url_for('register_vol') }}">Click to Register!</a></p></center>
+        </center>
     </form>
-    <p>New Volunteer? <a href="{{ url_for('register_vol') }}">Click to Register!</a></p>
+</html>
 {% endblock %}
