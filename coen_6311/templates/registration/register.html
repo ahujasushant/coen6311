@@ -1,23 +1,98 @@
 {% block css %}
-  {% include 'layouts/background-style.html' %}
+{% include 'layouts/background-style.html' %}
 {% endblock %}
 
 {% include 'layouts/navbar.html' %}
 
-
-{% extends "/base.html" %}
-
 {% block content %}
-    <h1>Register</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.org_name.label }}<br>
-            {{ form.org_name(size=32) }}<br>
-            {% for error in form.org_name.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+<center><h1>Register as an Organization</h1></center> <br>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  font-size: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius:7px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+
+
+/* Set a style for the submit button */
+
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.button-register, input[type="submit"] {
+  background-color: #0B4742; /* Green */
+  border: none;
+  width:25%;
+  color: white;
+  <!--padding: 16px 32px;-->
+  text-align: center;
+  text-decoration: none;
+  border-radius:7px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+}
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+<form action="" , method="post">
+    <center><p>Please fill in this form to create an account:</p></center>
+
+    {{ form.hidden_tag() }}
+    <center><p>
+        {{ form.org_name.label }}<br>
+        {{ form.org_name(size=32) }}<br>
+        {% for error in form.org_name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+    </p>
         <p>
             {{ form.official_email.label }}<br>
             {{ form.official_email(size=64) }}<br>
@@ -39,7 +114,18 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <p>Already, registered? <a href="{{ url_for('login') }}">Click here to Login!</a></p>
+        <p>
+                <span class="button-register">
+                    {{ form.submit() }}
+                </span>
+        </p>
+    </center>
+</form>
+
+
+<center><p>Already, registered? <a href="{{ url_for('login') }}">Click here to Login!</a></p></center>
+
 {% endblock %}
+</div>
+</body>
+</html>
