@@ -1,0 +1,100 @@
+{% block css %}
+  {% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
+{% block content %}
+<center><h1>Create Post</h1></center>>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  font-size: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius:7px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+/* Set a style for the submit button */
+
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.button-register, input[type="submit"] {
+  background-color: #0B4742; /* Green */
+  border: none;
+  width:25%;
+  color: white;
+  <!--padding: 16px 32px;-->
+  text-align: center;
+  text-decoration: none;
+  border-radius:7px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+}
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    </style>
+</head>
+
+    <body>
+    <form action="" method="post">
+        <center><p>Please fill in this form to create a Post:</p></center>
+        {{ form.hidden_tag() }}
+        <center><p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=64) }}<br>
+            {% for error in form.description.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=64) }}<br>
+            {% for error in form.location.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p></center>
+    </form>
+{% endblock %}

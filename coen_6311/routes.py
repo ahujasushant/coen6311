@@ -2,7 +2,7 @@
 
 import flask
 from coen_6311 import app
-from coen_6311.forms import LoginForm, RegistrationForm, VolunteerLoginForm, VolunteerRegistrationForm
+from coen_6311.forms import LoginForm, RegistrationForm, VolunteerLoginForm, VolunteerRegistrationForm, PostForm
 from flask_login import current_user, login_user
 from coen_6311.models import Volunteer, Organization, Post
 from flask_login import logout_user
@@ -106,6 +106,19 @@ def posts():
 def volunteers():
     volunteers = Volunteer.query.all()
     return flask.render_template('volunteer/index.html', volunteers=volunteers)
+
+@app.route('/create_post', methods=['GET', 'POST'])
+def create_post():
+    if current_user.is_authenticated:
+        return flask.redirect(flask.url_for('about'))
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(description=form.description.data, location=form.location.data)
+        db.session.add(post)
+        db.session.commit()
+        flask.flash('Congratulations, your post has successfully been created')
+        return flask.redirect(flask.url_for('posts'))
+    return flask.render_template('/post/create_post.html', title='Create Post', form=form)
 
 # Launch Application
 

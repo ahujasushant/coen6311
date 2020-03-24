@@ -25,7 +25,7 @@
         <a class="navbar-brand" href="/about">About Us</a>
         <a style="float: right" class="navbar-brand" href="/register_organization">Need a Volunteer?</a>
         {% if current_user.is_anonymous %}
-            <a style="float: right" class="navbar-brand" href="/posts">Create a Post</a>
+            <a style="float: right" class="navbar-brand" href="/create_post">Create a Post</a>
             <a style="float: right" class="navbar-brand" href="/volunteers">Volunteers</a>
         {% else %}
             <a style="float: right" class="navbar-brand" href="/posts">Posts</a>

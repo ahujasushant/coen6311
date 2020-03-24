@@ -58,7 +58,7 @@ class Post(db.Model):
     location = db.Column(db.String(120))
 
     def __repr__(self):
-        return '<Post {}>'.format(self.description)
+        return '<Post {}>'.format(self.description, self.location)
 
 
 
