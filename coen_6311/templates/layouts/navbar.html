@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}Volunteer Connect{% endblock %}</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,27 +18,41 @@
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="navbar-brand" href="/register_volunteer">Become a Volunteer</a>
+        {% if not session['organization_id'] %}
+            <a class="navbar-brand" href="/register_volunteer">Become a Volunteer</a>
+        {% endif %}
+
         <a class="navbar-brand" href="/about">About Us</a>
-        <a style="float: right" class="navbar-brand" href="/register_organization">Need a Volunteer?</a>
-        {% if current_user.is_anonymous %}
+        <a class="navbar-brand" href="/donate">Donate</a>
+
+        {% if not session['volunteer_id'] and not session['organization_id'] %}
+            <a style="float: right" class="navbar-brand" href="/register_organization">Need a Volunteer?</a>
+        {% endif %}
+
+        {% if session['organization_id'] %}
             <a style="float: right" class="navbar-brand" href="/create_post">Create a Post</a>
             <a style="float: right" class="navbar-brand" href="/volunteers">Volunteers</a>
-        {% else %}
             <a style="float: right" class="navbar-brand" href="/posts">Posts</a>
+            <a style="float: right" class="navbar-brand" href="/volunteer_history">Volunteer History</a>
+            <a style="" class="navbar-brand" href="/org_profile">Organization Profile</a>
+
+        {% elif session['volunteer_id'] %}
+            <a style="" class="navbar-brand" href="/vol_profile">Volunteer Profile</a>
+        {% endif %}
+
+        {% if session['organization_id'] or session['volunteer_id'] %}
+        <a style="float: right" class="navbar-brand" href="/logout">Logout</a>
         {% endif %}
     </nav>
 </div>
-    <!-- Page Content -->
-    <div class="container">
-        <br><br><br><br>
-        {% block content %}{% endblock %}
-
-
-    </div>
+<!-- Page Content -->
+<div class="container">
+    <br><br><br><br>
+    {% block content %}{% endblock %}
+</div>
 </body>
 
 </html>
