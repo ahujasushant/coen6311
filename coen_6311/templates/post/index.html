@@ -5,29 +5,31 @@
 {% extends 'layouts/navbar.html' %}
 
 {% block content %}
+
 <div class="row">
     <h1>Posts</h1>
-    <table class="table table-bordered">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Description</th>
-            <th scope="col">Location</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
+    <a href="/create_post" class="btn btn-primary" style="float: right; margin: 10px">New Post</a>
 
-        <tbody>
-        {% for v in posts %}
+    <div>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Description</th>
+                <th scope="col">Location</th>
+            </tr>
+            </thead>
 
-        <tr>
-            <td scope="col">{{ v.description }}</td>
-            <td scope="col">{{ v.location }}</td>
-            <td></td>
+            <tbody>
+            {% for v in posts %}
 
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <tr>
+                <td scope="col">{{ v.description }}</td>
+                <td scope="col">{{ v.location }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
