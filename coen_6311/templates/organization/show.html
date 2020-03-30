@@ -1,0 +1,32 @@
+{% block css %}
+{% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
+{% block content %}
+<center><h1>Organization Details</h1></center>>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="rating-block">
+                <h4>Organization Name: {{ organization.org_name }}</h4>
+                <h4>Official Email: {{ organization.official_email }}</h4>
+                <h4>Founded In: {{ organization.founded_in }}</h4>
+            </div>
+            <a href="/edit_org_profile" class="btn btn-primary">Edit Profile</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

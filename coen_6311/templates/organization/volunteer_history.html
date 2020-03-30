@@ -1,0 +1,56 @@
+{% block css %}
+{% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
+{% block content %}
+<center><h1>Volunteer Location History</h1></center>>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <table class="table table-bordered">
+
+        <thead>
+
+        <tr>
+            <th>Volunteer Name</th>
+            <th>Original Location</th>
+            <th>Worked in Past Locations</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, values in vol_history.items() %}
+
+        <tr>
+            <td>{{ key.name }}</td>
+            <td>{{ key.location() }}</td>
+            <td>{% for location in values %}
+                {{ location }},
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="rating-block">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
