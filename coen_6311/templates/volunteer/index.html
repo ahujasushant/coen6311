@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en">
+
 {% block css %}
 {% include 'layouts/background-style.html' %}
 {% endblock %}
@@ -5,14 +8,33 @@
 {% extends 'layouts/navbar.html' %}
 
 {% block content %}
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script>
+$('#exampleModal').on('show.bs.modal', function (event) {
+})
+
+
+
+
+</script>
+
 <div class="row">
     <h1>Volunteers</h1>
     <table class="table table-bordered">
+
         <thead class="thead-dark">
 
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Connect</th>
         </tr>
         </thead>
 
@@ -20,13 +42,75 @@
         {% for v in volunteers %}
 
         <tr>
+            <td>{{ v.id }}</td>
             <td>{{ v.name }}</td>
             <td>{{ v.email }}</td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Show Posts
+                </button>
+            </td>
         </tr>
+
         {% endfor %}
+
         </tbody>
+
     </table>
+
+
 </div>
 
+<div class="modal " id="exampleModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Available Posts</h5>
 
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+
+                    <thead>
+
+                    <tr>
+                        <th>Description</th>
+                        <th>Location</th>
+                        <th>Enter Volunteer ID</th>
+                        <th>Connect</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+
+                    {% for post in posts %}
+
+                    <tr>
+                        <td>{{ post.description }}</td>
+                        <td>{{ post.location }}</td>
+                        <form action="connectVolunteer" method="post">
+
+                            <td><input type="text" name="volunteer_id"/></td>
+                            <input type="hidden" name="post_id" value="{{ post.id }}"/>
+                            <td><input type="submit" value="Connect with Volunteer"></td>
+                        </form>
+                    </tr>
+
+
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+</body>
+
+</html>
