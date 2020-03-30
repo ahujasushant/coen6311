@@ -1,0 +1,57 @@
+{% block css %}
+{% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% extends 'layouts/navbar.html' %}
+{% block title %}Volunteer Connect{% endblock %}
+
+{% block content %}
+<style>
+      .button {
+  background-color: #0B4742; /* Green */
+  border: none;
+  width:100%;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius:7px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.9s;
+  cursor: pointer;
+}
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+</style>
+<div class="row">
+    <center><h1>Donate</h1></center>
+</div>
+
+<button class="button button1">Pick Up</button>
+<p>
+  <div class="row">
+
+</div>
+
+</p>
+
+<button class="button button1">Send Us To the Following Address</button>
+<br/>
+
+
+{% endblock %}
