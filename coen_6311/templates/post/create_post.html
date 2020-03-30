@@ -25,7 +25,7 @@ body {
 
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text] {
   width: 40%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -35,11 +35,6 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-
-/* Set a style for the submit button */
-
-
-/* Add a blue text color to links */
 a {
   color: dodgerblue;
 }
@@ -81,8 +76,8 @@ img {
     <form action="" method="post">
         <center><p>Please fill in this form to create a Post:</p></center>
         {{ form.hidden_tag() }}
-        <center><p>
-            {{ form.description.label }}<br>
+        <center>{{ form.description.label }}<br></center>
+        <center><p class="description-input">
             {{ form.description(size=64) }}<br>
             {% for error in form.description.errors %}
             <span style="color: red;">[{{ error }}]</span>
