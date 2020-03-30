@@ -1,0 +1,33 @@
+{% block css %}
+{% include 'layouts/background-style.html' %}
+{% endblock %}
+
+{% include 'layouts/navbar.html' %}
+
+{% block content %}
+<center><h1>Profile Details</h1></center>>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="rating-block">
+                <h4>Name: {{ volunteer.name }}</h4>
+                <h4>Email: {{ volunteer.email }}</h4>
+                <h4>Date of Birth: {{ volunteer.dob }}</h4>
+                <a href="/edit_vol_profile" class="btn btn-primary">Edit Profile</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+        {% endblock %}
