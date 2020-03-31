@@ -128,6 +128,10 @@ def edit_vol_profile():
         return flask.render_template('/volunteer/show.html', volunteer=volunteer, errors=errors)
 
     volunteer.name = form.name.data
+    volunteer.street_number = form.street_number.data
+    volunteer.street_name = form.street_name.data
+    volunteer.state = form.state.data
+    volunteer.country = form.country.data
     volunteer.post_code = form.post_code.data
     db.session.commit()
     return flask.render_template('/volunteer/show.html', volunteer=volunteer)
