@@ -121,6 +121,14 @@ img {
         </p>
 
             <p>
+            {{ form.state.label }}<br>
+            {{ form.state(size=64) }}<br>
+            {% for error in form.state.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+            <p>
             {{ form.post_code.label }}<br>
             {{ form.post_code(size=32) }}<br>
             {% for error in form.name.errors %}
