@@ -21,7 +21,6 @@
 <div class="container">
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <a class="navbar-brand" href="/"><img src="/static/images/logotrans.png" alt="image" style="width:200px"></a>
         {% if not session['organization_id'] and not session['volunteer_id'] %}
             <a class="navbar-brand" href="/register_volunteer">Become a Volunteer</a>
         {% endif %}
