@@ -10,7 +10,7 @@ certifi==2019.3.9
 cffi==1.13.2
 chardet==3.0.4
 click==7.1.1
--e git+https://gitlab.com/sushantahuja/coen_6311.git@78883934f219810defe1bd3c99c5fbe4a21e37be#egg=coen_6311
+-e git+https://gitlab.com/sushantahuja/coen_6311.git@672464ba48d4dfc61df8aa5dbe1bb50afa1d24fc#egg=coen_6311
 coverage==5.0.3
 cryptography==2.8
 cycler==0.10.0

@@ -55,7 +55,6 @@ class OrganizationEditForm(FlaskForm):
 class PostForm(FlaskForm):
     description = StringField('Description', validators=[DataRequired()])
     location = StringField('Location', validators=[DataRequired()])
-    # o = Organization.query.get(cur)
 
     submit = SubmitField('Create Post')
 
