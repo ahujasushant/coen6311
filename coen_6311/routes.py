@@ -234,7 +234,7 @@ def volunteers():
     else:
         g.organization = Organization.query.get(organization_id)
     posts = g.organization.posts.all()
-    volunteers = Volunteer.query.all()
+    volunteers = Volunteer.query.order_by(Volunteer.id).all()
     return flask.render_template('volunteer/index.html', volunteers=volunteers, posts=posts)
 
 
