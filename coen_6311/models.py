@@ -7,7 +7,7 @@ from coen_6311 import login
 
 class Volunteer(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), index=True, unique=True)
+    name = db.Column(db.String(64), index=True)
     email = db.Column(db.String(120), index=True, unique=True)
     dob = db.Column(db.String(128), default='')
     street_name = db.Column(db.String(128), default='')
