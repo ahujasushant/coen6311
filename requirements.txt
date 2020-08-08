@@ -17,7 +17,7 @@ cycler==0.10.0
 Cython==0.29.14
 decorator==4.4.0
 defusedxml==0.5.0
-Django==3.0.3
+Django==3.0.7
 dominate==2.4.0
 entrypoints==0.3
 fabric==2.5.0
